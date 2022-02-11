@@ -78,7 +78,7 @@ in stdenv.mkDerivation {
      export HOME=$PWD
      # need to specify interface or: "MPID_nem_tcp_init(373) gethostbyname failed"
      $out/bin/molpro --launcher \
-       "$out/bin/mpiexec.hydra -iface lo $out/bin/molpro.exe" $inp.inp
+       "$out/bin/mpiexec.hydra -iface lo -launcher fork $out/bin/molpro.exe" $inp.inp
 
      echo "Check for sucessful run:"
      grep "RHF STATE 1.1 Energy" $inp.out
